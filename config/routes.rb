@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :cryptocurrencies
   root 'home#index'
   get 'about' => 'home#about'
   get 'lookup' => 'home#lookup'

@@ -1,0 +1,20 @@
+<%@lookup_cryptos.each do |crypto|%>
+  <%if crypto["symbol"] == @cryptocurrency.symbol.upcase%>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%=crypto["name"]%></h3>
+        </div>
+        <div class="panel-body">
+          <h3><%=crypto["name"]%></h3>
+          <div>Rank : #<%=crypto["rank"]%></div>
+          <div>Current Price : $<%=crypto["price_usd"]%></div>
+          <div>Symbol : <%=@cryptocurrency.symbol%></div>
+          <div>Cost_per : <%=@cryptocurrency.cost_per%></div>
+          <div>Amount_owned : <%=@cryptocurrency.amount_owned%></div>
+        </div>
+         <div class="panel-footer"><%=link_to "Edit",edit_cryptocurrency_path(@cryptocurrency)%> || <%=link_to "Delete",cryptocurrency_path(@cryptocurrency),method: :delete,data:{confirm:"Are you sure?"}%>
+||<%= link_to "Back",cryptocurrencies_path%></div>
+      </div>
+<%end%>
+<%end%>
+
