@@ -1,0 +1,17 @@
+<h3>Search for a crypto coin :</h3>
+
+<%=form_tag lookup_path,method: :post do%>
+  <%= text_field_tag :name%>
+  <%= submit_tag "Search The Crypto Now!"%>
+<%end%>
+
+<%if @symbol != ""%>
+    <%@lookup_coins.each do |coin|%>
+      <%if coin["symbol"] == @symbol%>
+        <%=content_tag "div","Symbol : #{coin["symbol"]}  CryptoCurrency : #{coin["name"]}"%>
+        <%=content_tag "div","Rank : #{coin["rank"]}"%>
+      <%end%>
+    <%end%>
+<%else%>
+    <%=content_tag "div","You forgot to enter a currency!"%>
+<%end%>
